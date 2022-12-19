@@ -35,9 +35,9 @@ Configure the root of your repository with the following files and directories. 
 - emailjs-com
 
 ## Related-repos ​​​💻​📌​
-BackEnd : [link repo COVID-19](https://github.com/engTasneemmaq/covid-19-frontend)
+BackEnd : [link repo COVID-19](https://github.com/engTasneemmaq/covid-19)
 
-FrontEnd : [link repo COVID-19](https://github.com/engTasneemmaq/covid-19)
+FrontEnd : [link repo COVID-19](https://github.com/engTasneemmaq/covid-19-frontend)
 
 
 ## Installation
