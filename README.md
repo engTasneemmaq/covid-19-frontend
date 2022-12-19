@@ -35,9 +35,10 @@ Configure the root of your repository with the following files and directories. 
 - emailjs-com
 
 ## Related-repos ​​​💻​📌​
-BackEnd : [link repo COVID-19]()
+BackEnd : [link repo COVID-19](https://github.com/engTasneemmaq/covid-19-frontend)
 
-FrontEnd : [link repo COVID-19]()
+FrontEnd : [link repo COVID-19](https://github.com/engTasneemmaq/covid-19)
+
 
 ## Installation
 - COVID-19 requires React to run.
