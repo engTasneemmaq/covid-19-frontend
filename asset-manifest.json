@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/engTasneemmaq/covid-19-frontend/static/css/main.90abbda0.css",
+    "main.js": "/engTasneemmaq/covid-19-frontend/static/js/main.2f56e5e8.js",
+    "index.html": "/engTasneemmaq/covid-19-frontend/index.html",
+    "main.90abbda0.css.map": "/engTasneemmaq/covid-19-frontend/static/css/main.90abbda0.css.map",
+    "main.2f56e5e8.js.map": "/engTasneemmaq/covid-19-frontend/static/js/main.2f56e5e8.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.90abbda0.css",
+    "static/js/main.2f56e5e8.js"
+  ]
+}
