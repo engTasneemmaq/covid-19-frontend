@@ -32,7 +32,7 @@ Configure the root of your repository with the following files and directories. 
 - universal-cookie
 - web-vitals
 - fortawesome
-- emailjs-com
+- universal-cookie
 
 ## Related-repos ​​​💻​📌​
 BackEnd : [link repo COVID-19](https://github.com/engTasneemmaq/covid-19)

@@ -7,62 +7,55 @@ import Card from 'react-bootstrap/Card';
 import CardGroup from 'react-bootstrap/CardGroup';
 import { Link} from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
+import "./Country.css";
+import Cookies from 'universal-cookie';
+const cookies = new Cookies();
+
 
 function Country() {
-  const [data, setData] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const navigate= useNavigate();
+  const [allCountries, setAllCountries] = useState([]);
   const [userInfo, setUserInfo] = useState(
-    JSON.parse(sessionStorage.getItem("userInfo")) || []
+    (cookies.get("data")) || []
   );
-  
-
-  const recordsFetch = () => {
+const navigate =useNavigate();
+  const handleAddRecord = async (record) => {
+    console.log(userInfo);
+    if(userInfo.id)
     axios
-          .get('https://api.covid19api.com/summary')
-          .then((res) => {
-            console.log(res.data.Countries);
-            setData(res.data.Countries);
+      .post("https://covid-19-production.up.railway.app/record", {
+        country: record.Country,
+        totalConfirmedCases: record.TotalConfirmed,
+        totalDeathsCases: record.TotalDeaths,
+        totalRecoveredCases: record.TotalRecovered,
+        Date: record.Date,
+        userId: userInfo.id,
+      })
+      .then((data) => {
+        console.log(data.data);
        
-          }).catch((err) => {
-            console.log(err);
-          });
-        };
-        
-        useEffect(() => {
-          recordsFetch();
-        }, []);
 
+      });
+      else
+      navigate("/signin",{redirect:"/country"})
+  };
 
-        const handleAddRecord = async (record) => {
-          console.log(userInfo);
-          if(userInfo.id)
-          axios
-            .post("https://covid-19-production.up.railway.app/record", {
-              country: record.Country,
-              totalConfirmedCases: record.TotalConfirmed,
-              totalDeathsCases: record.TotalDeaths,
-              totalRecoveredCases: record.TotalRecovered,
-              Date: record.Date,
-              userId: userInfo.id,
-            })
-            .then((data) => {
-              console.log(data.data);
-      
-            });
-            else
-            navigate("/signin",{redirect:"/country"})
-        };
+  useEffect(() => {
+    axios
+      .get("https://api.covid19api.com/summary")
+      .then((data) => {
+        setAllCountries(data.data.Countries);
+      })
+      .catch((e) => {
+        console.log(e);
+      });
+  }, []);
 
 return (
   <div>
 <br />
-      <div style={{ display: "flex", justifyContent: "center" }}>
-        <RingLoader size={50} color={"green"} loading={loading} />
-      </div>
       <h1 style={{ textAlign: "center" }}> COVID-19 Statistics For All Countries</h1>
    
-     {data.map((record, index) => (
+     {allCountries?.map((record, index) => (
          <CardGroup key={index} className="card">
          <Card  key={index} bg="success" text="white"  style={{margin:"10px"}}>
              <Card.Body>

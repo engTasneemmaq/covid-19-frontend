@@ -28,7 +28,7 @@ export const SignIn = ({username, password }) => {
     }).then(response => {
         console.log(response);
         // sessionStorage.setItem("userInfo", response)
-        sessionStorage.setItem("userInfo", JSON.stringify(response.body.user));
+        // sessionStorage.setItem("userInfo", JSON.stringify(response.body.user));
         
         return response.json();
     }).catch(err => {
